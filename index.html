@@ -49,7 +49,7 @@
                                 <i class="fa-solid fa-magnifying-glass"></i>
                                 <input type="text" placeholder="Search Issues" required />
                             </label>
-                            
+
                         </div>
                         <button class="btn btn-primary join-item">+ New Issue</button>
                     </div>
@@ -57,9 +57,33 @@
             </div>
         </header>
 
-        <main>
-            <div class="buttons">
-                
+        <main class=" w-8/12 my-15 mx-auto space-y-5">
+            <!-- buttons  -->
+            <div class="buttons bg-white p-5 rounded-md shadow-sm ">
+                <button class="btn btn-primary w-20">All</button>
+                <button class="btn btn-primary w-20">Open</button>
+                <button class="btn btn-primary w-20">Closed</button>
+            </div>
+
+            <!--show  Issues section -->
+            <div class="issuesCount flex justify-between items-center bg-white p-5">
+                <div class="left flex ">
+                    <img class=" w-10 h-10 p-2 my-auto rounded-full bg-orange-100" src="./assets/Aperture.png" alt="">
+                    <h2 class="font-bold text-xl pl-3">40 Issues <br><span class=" text-sm font-normal">Track and manage
+                            your project issues</span></h2>
+                </div>
+                <div class="right flex justify-center items-center space-x-5">
+                    <div class="flex  justify-center items-center">
+                        <img class="w-4" src="./assets/Open-Status.png" alt="">
+                        <p class="font-semibold">Open</p>
+
+                    </div>
+                    <div class="flex  justify-center items-center">
+                        <img class="w-4" src="./assets/Closed- Status .png" alt="">
+                        <p class="font-semibold">Closed</p>
+
+                    </div>
+                </div>
             </div>
         </main>
     </section>
