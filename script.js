@@ -252,4 +252,23 @@ const showModal = (data) => {
 
 
 }
+
+document.getElementById("inputBtn").addEventListener("click",()=>{
+    const input=document.getElementById("inputData");
+    const inputValue=input.value.trim().toLowerCase();
+    // console.log(inputValue);
+    const url=`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${inputValue}`;
+    fetch(url)
+    .then(res=>res.json())
+    .then(data=>{
+        // console.log(data);
+        displayIssues(data.data);
+    })
+
+    allBtn.classList.add("btnDeactive");
+    openBtn.classList.add("btnDeactive");
+    closedBtn.classList.add("btnDeactive");
+
+    input.value="";
+})
 allIssues();
