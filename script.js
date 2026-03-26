@@ -92,8 +92,8 @@ const displayIssues = (issue) => {
                         <h3 class="font-bold">${data.title}</h3>
                         <p>${data.description}</p>
                         <div class="flex space-x-2">
-                            <p class="bg-red-200 p-1 rounded-lg">BUG</p>
-                            <p class="bg-red-200 p-1 rounded-lg">HELP WANTED</p>
+                            
+                            ${wordSyno(data.labels)}
                         </div>
                         <hr>
                         <p>#1 by ${data.author}</p>
@@ -110,6 +110,12 @@ const displayIssues = (issue) => {
 
     });
 
+}
+
+const wordSyno=(syno)=>{
+    const htmlElement=syno.map((el)=>
+        `<span class="btn rounded-lg  bg-orange-200">${el}</span>`);
+    return htmlElement.join(" ");
 }
 
 const openIssues = (issue) => {
@@ -135,8 +141,7 @@ const openIssues = (issue) => {
                         <h3 class="font-bold">${data.title}</h3>
                         <p>${data.description}</p>
                         <div class="flex space-x-2">
-                            <p class="bg-red-200 p-1 rounded-lg">BUG</p>
-                            <p class="bg-red-200 p-1 rounded-lg">HELP WANTED</p>
+                            ${wordSyno(data.labels)}
                         </div>
                         <hr>
                         <p>#1 by ${data.author}</p>
@@ -174,8 +179,7 @@ const openIssues = (issue) => {
                         <h3 class="font-bold">${data.title}</h3>
                         <p>${data.description}</p>
                         <div class="flex space-x-2">
-                            <p class="bg-red-200 p-1 rounded-lg">BUG</p>
-                            <p class="bg-red-200 p-1 rounded-lg">HELP WANTED</p>
+                            ${wordSyno(data.labels)}
                         </div>
                         <hr>
                         <p>#1 by ${data.author}</p>
@@ -227,8 +231,7 @@ const showModal = (data) => {
                     <p class="">${data.updatedAt}</p>
                 </div>
                 <div class="flex gap-3">
-                    <p class="bg-red-200 rounded-full px-3 text-red-500">BUG</p>
-                    <p class="bg-orange-200 rounded-full px-3 text-orange-500">HELP WANTED</p>
+                    ${wordSyno(data.labels)}
                 </div>
                 <p class="py-4">${data.description}
                 </p>
