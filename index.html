@@ -35,7 +35,7 @@
 <body class=" bg-[#F8FAFC]">
 
     <!-- home page section -->
-    <section>
+    <section class="hidden" id="homePage">
         <header>
             <div class="navbar bg-base-100 shadow-sm py-5  space-y-8 flex-col md:flex-row md:space-y-0 md:py-0">
                 <div class="flex flex-1  items-center space-x-4">
@@ -131,7 +131,7 @@
     </section>
 
     <!-- Login Section -->
-    <section class="flex justify-center items-center py-10">
+    <section class="flex justify-center items-center py-10" id="loginForm">
         <div class="loginInfo">
             <fieldset class="fieldset bg-white border-base-300 rounded-box w-xs border p-4">
                 <div class="text-center ">
@@ -142,14 +142,16 @@
                 <!-- <legend class="fieldset-legend">Login</legend> -->
 
                 <label class="label">Username</label>
-                <input type="text" class="input" placeholder="Enter Email" />
+                <input id="inputUserName" type="text" class="input" placeholder="Enter Username" />
                 <label class="text-[#4A00FF]">Username: admin</label>
 
                 <label class="label">Password</label>
-                <input type="password" class="input" placeholder="Enter Password" />
+                <input id="inputPassword" type="password" class="input" placeholder="Enter Password" />
                 <label class="text-[#4A00FF]">Default Password: admin123</label>
 
-                <button class="btn btn-primary mt-4">Sign In</button>
+                <button class="btn btn-primary mt-4" id="signInBtn">Sign In</button>
+
+                <p class=" text-red-500 hidden" id="wrongInfo">Please Input Correct Information</p>
 
                 <div class="divider">OR</div>
                 <p class="text-center">Demo Credentials: </p>
