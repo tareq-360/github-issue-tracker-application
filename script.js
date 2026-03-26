@@ -83,7 +83,7 @@ const displayIssues = (issue) => {
 
         const newElement = document.createElement("div");
         newElement.innerHTML = `
-            <div class="card bg-white rounded-md shadow-md p-5">
+            <div class="card bg-white rounded-md shadow-md p-5" onclick="my_modal_5.showModal()">
                     <div class="flex  justify-between space-y-5">
                         <img class="w-10 h-10 ${(data.status == "open") ? "bg-green-400" : "bg-red-300"} p-2 rounded-full" src="${(data.status == "open") ? "./assets/Open-Status.png" : "./assets/Closed- Status .png"}" alt="">
                         <p class="btn btn-primary">${data.priority}</p>
@@ -101,15 +101,20 @@ const displayIssues = (issue) => {
 
                     </div>
                 </div>
-        `
+        `;
+        newElement.addEventListener("click", () => {
+            modal(data.id);
+        });
+
         card.append(newElement);
 
     });
+
 }
 
 const openIssues = (issue) => {
     // console.log(issue);
-    allBtn.addEventListener("click",()=>{
+    allBtn.addEventListener("click", () => {
         allIssues();
     })
     openBtn.addEventListener("click", () => {
@@ -139,7 +144,10 @@ const openIssues = (issue) => {
 
                     </div>
                 </div>
-        `
+                `;
+                newElement.addEventListener("click", () => {
+                    modal(data.id);
+                });
                 card.append(newElement);
 
             }
@@ -175,7 +183,10 @@ const openIssues = (issue) => {
 
                     </div>
                 </div>
-        `
+                `;
+                newElement.addEventListener("click", () => {
+                    modal(data.id);
+                });
                 card.append(newElement);
 
             }
@@ -184,6 +195,59 @@ const openIssues = (issue) => {
 
         issues.innerText = `${i} Issues`;
     })
+
+
+
+}
+
+const modal = (id) => {
+    // id.forEach(no => {
+    fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`)
+        .then(res => res.json())
+        .then(data => {
+            // console.log(data);
+            showModal(data.data);
+
+            // })
+
+        })
+}
+
+const showModal = (data) => {
+    const modal = document.getElementById("modal");
+    const newElement = document.createElement("div");
+    modal.innerHTML = "";
+    // console.log(data);
+    newElement.innerHTML = `
+            <div class="space-y-4">
+                <h3 class="text-lg font-bold">${data.title}</h3>
+                <div class="flex gap-3">
+                    <p class="bg-green-400 ${(data.status=="closed") ? "bg-red-400" : "bg-green-400"} text-white rounded-full px-3 text-center flex items-center">${data.status}</p>
+                    <p class="">Opened by ${data.author}</p>
+                    <p class="">${data.updatedAt}</p>
+                </div>
+                <div class="flex gap-3">
+                    <p class="bg-red-200 rounded-full px-3 text-red-500">BUG</p>
+                    <p class="bg-orange-200 rounded-full px-3 text-orange-500">HELP WANTED</p>
+                </div>
+                <p class="py-4">${data.description}
+                </p>
+                <div class="flex justify-start items-center gap-40 bg-base-200 rounded-md p-5">
+                    <p>Assignee: <br> <span class="font-bold ">${data.assignee}</span></p>
+                    <p>Priority: <br> <span class="bg-red-400 text-white px-3 rounded-full">${data.priority}</span></p>
+                </div>
+
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn btn-primary">Close</button>
+                    </form>
+                </div>
+            </div>
+    `
+
+    modal.append(newElement);
+    my_modal_5.showModal()
 
 
 
