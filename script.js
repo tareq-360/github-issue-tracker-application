@@ -114,7 +114,7 @@ const displayIssues = (issue) => {
 
 const wordSyno=(syno)=>{
     const htmlElement=syno.map((el)=>
-        `<span class="btn rounded-lg  bg-orange-200">${el}</span>`);
+        `<span class="px-2 rounded-lg  bg-orange-200">${el}</span>`);
     return htmlElement.join(" ");
 }
 
