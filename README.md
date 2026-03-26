@@ -1,5 +1,6 @@
 - 
     - 1️⃣ What is the difference between var, let, and const?
+    - 
      ans: var= var has use old coding and it function scoped.
           let= let is changable its not fixed in veriable.
           const= const is most useable for veriable declairing time.
