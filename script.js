@@ -33,6 +33,8 @@ const allIssues=()=>{
 const displayIssues=(issue)=>{
     // console.log();
     const totalIssue=issue.length;
+    const issues=document.getElementById("issuesCount");
+    issues.innerText=`${totalIssue} Issues`;
     card.innerHTML="";
     issue.forEach(data => {
         
