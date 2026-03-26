@@ -1,0 +1,7 @@
+.btnActive{
+    
+}
+.btnDeactive{
+    background-color: rgba(128, 128, 128, 0.279);
+    color: rgb(0, 0, 0);
+}
