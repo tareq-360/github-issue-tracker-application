@@ -54,8 +54,8 @@ const displayIssues=(issue)=>{
                             <p class="bg-red-200 p-1 rounded-lg">HELP WANTED</p>
                         </div>
                         <hr>
-                        <p>#1 by john_doe</p>
-                        <p>1/15/2024</p>
+                        <p>#1 by ${data.author}</p>
+                        <p>${data.createdAt}</p>
 
                     </div>
                 </div>
